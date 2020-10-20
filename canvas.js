@@ -17,7 +17,6 @@ var numCircles = 800;
 var colorArray = ["#F20530", "#730220", "#2B718C", "#D9BC9A", "#BF1111"]
 
 window.addEventListener("touchmove", function(event) {
-    event.preventDefault();
     mouse.x = event.pageX;
     mouse.y = event.pageY;
 });
