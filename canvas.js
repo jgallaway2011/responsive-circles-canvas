@@ -22,6 +22,7 @@ window.addEventListener("mousemove", function(event) {
 });
 
 window.addEventListener("touchmove", function(event) {
+    event.preventDefault();
     mouse.x = event.pageX;
     mouse.y = event.pageY;
 });
