@@ -21,9 +21,19 @@ window.addEventListener("mousemove", function(event) {
     mouse.y = event.pageY;
 });
 
+window.addEventListener("mouseout", function(event) {
+    mouse.x = event.undefined;
+    mouse.y = event.undefined;
+});
+
 window.addEventListener("touchmove", function(event) {
     mouse.x = event.pageX;
     mouse.y = event.pageY;
+});
+
+window.addEventListener("touchend", function(event) {
+    mouse.x = undefined;
+    mouse.y = undefined;
 });
 
 window.addEventListener('resize', function() {
@@ -74,6 +84,8 @@ function Circle(x, y, dx, dy, radius) {
                 }
             } else if (this.radius > this.minRadius) {
                 this.radius -= 1;
+            } else if (mouse.x === undefined && mouse.y === undefined && this.radius > this.minRadius) {
+                this.radius -= 1;
             }
         }
     }
@@ -95,7 +107,8 @@ function init() {
  
 function animate() {
     requestAnimationFrame(animate);
-    c.clearRect(0, 0, innerWidth, innerHeight);
+    c.fillStyle = 'rgba(0,0,0)'
+    c.fillRect(0, 0, innerWidth, innerHeight);
     for (var i = 0; i < circleArray.length; i++) {
         circleArray[i].update();
     }
