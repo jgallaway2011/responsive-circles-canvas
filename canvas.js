@@ -21,9 +21,14 @@ window.addEventListener("mousemove", function(event) {
     mouse.y = event.pageY;
 });
 
-window.addEventListener("mouseout", function(event) {
-    mouse.x = event.undefined;
-    mouse.y = event.undefined;
+window.addEventListener("mouseout", function() {
+    mouse.x = undefined;
+    mouse.y = undefined;
+});
+
+window.addEventListener("touchstart", function(event) {
+    mouse.x = event.pageX;
+    mouse.y = event.pageY;
 });
 
 window.addEventListener("touchmove", function(event) {
@@ -31,7 +36,7 @@ window.addEventListener("touchmove", function(event) {
     mouse.y = event.pageY;
 });
 
-window.addEventListener("touchend", function(event) {
+window.addEventListener("touchend", function() {
     mouse.x = undefined;
     mouse.y = undefined;
 });
